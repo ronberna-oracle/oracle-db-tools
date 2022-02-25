@@ -1,0 +1,390 @@
+{
+    "order" : 10,
+    "index_patterns" : [
+      "adb-ords-*"
+    ],
+    "settings" : {
+      "index" : {
+        "lifecycle" : {
+          "name" : "common-retention-policy"
+        }
+      },
+      "number_of_replicas": 0
+    },
+    "mappings" : {
+        "properties" : {
+          "@timestamp" : {
+            "type" : "date"
+          },
+          "@version" : {
+            "type" : "keyword"
+          },
+          "REMOTE_HOST" : {
+            "type" : "keyword"
+          },
+          "accept" : {
+            "type" : "text"
+          },
+          "accept_encoding" : {
+            "type" : "text"
+          },
+          "accept_language" : {
+            "type" : "text"
+          },
+          "aclValidated" : {
+            "type" : "boolean"
+          },
+          "adb_request_id" : {
+            "type" : "keyword"
+          },
+          "adwc_logstash_host" : {
+            "type" : "keyword"
+          },
+          "authuser" : {
+            "type" : "keyword"
+          },
+          "autoDiagnose" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "base_path" : {
+            "type" : "keyword"
+          },
+          "bytes" : {
+            "type" : "long"
+          },
+          "charset" : {
+            "type" : "keyword"
+          },
+          "client_ip" : {
+            "type" : "ip"
+          },
+          "componentID" : {
+            "type" : "keyword"
+          },
+          "content_length" : {
+            "type" : "long"
+          },
+          "content_type" : {
+            "type" : "text"
+          },
+          "cs-method" : {
+            "type" : "keyword"
+          },
+          "cs-uri" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "database_name" : {
+            "type" : "keyword"
+          },
+          "dos_filter_uri" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "ecid" : {
+            "type" : "keyword"
+          },
+          "ecid_context" : {
+            "type" : "keyword"
+          },
+          "host" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "hostID" : {
+            "type" : "keyword"
+          },
+          "http_method" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "http_server" : {
+            "type" : "keyword"
+          },
+          "http_status" : {
+            "type" : "long",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "http_version" : {
+            "type" : "float"
+          },
+          "latency" : {
+            "type" : "long"
+          },
+          "log_level" : {
+            "type" : "keyword"
+          },
+          "message" : {
+            "type" : "text"
+          },
+          "moduleID" : {
+            "type" : "keyword"
+          },
+          "msgID" : {
+            "type" : "keyword"
+          },
+          "msgLevel" : {
+            "type" : "keyword"
+          },
+          "msgText" : {
+            "type" : "text"
+          },
+          "msgType" : {
+            "type" : "keyword"
+          },
+          "origin" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "originalConnection_destination_ip" : {
+            "type" : "ip"
+          },
+          "originalConnection_destination_port" : {
+            "type" : "long"
+          },
+          "originalConnection_protocol" : {
+            "type" : "keyword"
+          },
+          "originalConnection_source_ip" : {
+            "type" : "ip"
+          },
+          "originalConnection_source_port" : {
+            "type" : "long"
+          },
+          "partition-id" : {
+            "type" : "long"
+          },
+          "partition-name" : {
+            "type" : "keyword"
+          },
+          "path" : {
+            "type" : "keyword"
+          },
+          "pdb_name" : {
+            "type" : "keyword"
+          },
+          "pe_attached" : {
+            "type" : "boolean"
+          },
+          "protocol" : {
+            "type" : "keyword"
+          },
+          "public_host" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "referrer" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "remote_addr" : {
+            "type" : "ip"
+          },
+          "request" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "request-host" : {
+            "type" : "keyword"
+          },
+          "rid" : {
+            "type" : "keyword"
+          },
+          "sc-status" : {
+            "type" : "long"
+          },
+          "sec_ch_ua" : {
+            "type" : "text"
+          },
+          "sec_ch_ua_mobile" : {
+            "type" : "text"
+          },
+          "sec_fetch_dest" : {
+            "type" : "text"
+          },
+          "sec_fetch_mode" : {
+            "type" : "text"
+          },
+          "sec_fetch_site" : {
+            "type" : "text"
+          },
+          "service_type" : {
+            "type" : "keyword"
+          },
+          "severity-value" : {
+            "type" : "keyword"
+          },
+          "src_host_name" : {
+            "type" : "keyword"
+          },
+          "tags" : {
+            "type" : "keyword"
+          },
+          "tenant_id" : {
+            "type" : "keyword"
+          },
+          "tenant_name" : {
+            "type" : "keyword"
+          },
+          "threadID" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "thread_nr" : {
+            "type" : "keyword"
+          },
+          "thread_queue" : {
+            "type" : "keyword"
+          },
+          "thread_status" : {
+            "type" : "keyword"
+          },
+          "thrown" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "user-logname" : {
+            "type" : "keyword"
+          },
+          "user_agent" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },          
+          "type" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "userID" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "x_conversation_id" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "x_forwarded_for" : {
+            "type" : "ip"
+          },
+          "x_forwarded_host" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "x_forwarded_port" : {
+            "type" : "long"
+          },
+          "x_forwarded_proto" : {
+            "type" : "keyword"
+          },
+          "x_oci_lb_networkmetadata" : {
+            "type" : "text"
+          },
+          "x_oci_vcn_id" : {
+            "type" : "long"
+          },
+          "x_oci_vcn_ocid" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "x_real_ip" : {
+            "type" : "ip"
+          },
+          "x_requested_with" : {
+            "type" : "keyword"
+          },
+          "x_vcn_id" : {
+            "type" : "long"
+          }
+        }
+    }
+}

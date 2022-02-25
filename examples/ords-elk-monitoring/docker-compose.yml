@@ -1,0 +1,51 @@
+version: '2.4'
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    hostname: elasticsearch
+    image: elasticsearch:7.16.2
+    environment:
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
+      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      - discovery.type=single-node
+      - cluster.name=dbtools-docker-cluster
+      - node.name=docker-node-1
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+      - ELASTIC_PASSWORD="welcome1"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - SED_REPLACE_HERE:/usr/share/elasticsearch/data
+    restart: unless-stopped
+    
+  logstash:
+    container_name: logstash
+    hostname: logstash
+    image: logstash:7.6.0
+    environment:
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ports:
+      - 5044:5044
+      - 5151:5000/tcp
+      - 5151:5000/udp
+      - 9600:9600
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+      - SED_REPLACE_HERE:/usr/share/logstash/data/logs
+    depends_on:
+      - elasticsearch
+      - kibana
+    restart: unless-stopped
+
+  kibana:
+    container_name: kibana
+    hostname: kibana
+    image: kibana:7.16.2
+    environment:
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
