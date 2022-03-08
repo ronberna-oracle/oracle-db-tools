@@ -21,11 +21,13 @@ In this file you'll need to modify the directory you've chosen to host the `$doc
 
 Once you've modified or created your `logging.properties` file, you may do any of the following options to enable JAVA logs:
 - Use the JAVA_OPTS variable to pass the following config and restart ORDS:
-	`JAVA_OPTS=-Djava.util.logging.config.file=$ORDS_HOME/logging.properties`
+
+`JAVA_OPTS=-Djava.util.logging.config.file=$ORDS_HOME/logging.properties`
 
 OR
 
 - Modify the ords binary file located on `$ORDS_HOME/bin/ords` and add the following line inside the function `setupArgs` and restart ORDS
+
 `AddVMOption -Djava.util.logging.config.file=$ORDS_HOME/logging.properties`
 
 **Inside this directory we've provided a `logging.properties` file which demonstrates the correct log format supported by our logstash configuration, this format is necessary for propper log digestion. Any other format is unsupported.**
